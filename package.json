@@ -1,0 +1,23 @@
+{
+  "name": "react-sanitize-input",
+  "version": "0.0.0",
+  "description": "react/sanitizer api integration component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sam-parsons/react-sanitize-input.git"
+  },
+  "author": "Sam Parsons <samparsons269@gmail.com> (http://sam-parsons.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sam-parsons/react-sanitize-input/issues"
+  },
+  "homepage": "https://github.com/sam-parsons/react-sanitize-input#readme"
+}
