@@ -23,9 +23,7 @@ export default class Sanitize extends React.PureComponent {
           }.bind(this);
           const newProps = Object.assign(
             { ...child.props },
-            {
-              onChange: newHandler,
-            }
+            { onChange: newHandler }
           );
           const newChild = React.createElement(child.type, newProps);
           return newChild;
