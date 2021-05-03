@@ -4,17 +4,23 @@ import SanitizeInput from 'sanitize-input';
 export default class Sanitize extends React.PureComponent {
   constructor(props) {
     super(props);
-    // check if Sanitizer is in window
+    // check if Sanitizer API exists in window
+    if (!('Sanitizer' in window)) {
+      return new ReferenceError('Sanitizer API does not exist in this browser');
+    }
+    this.Sanitizer = new window.Sanitizer();
   }
 
   render() {
-    this.props.child;
     return !this.props.children.length
       ? this.props.children
       : this.props.children.map((child) => {
-          // child.props.onChange = SanitizeInput(child.props.onChange);
-          const newHandler = SanitizeInput(child.props.onChange);
-          console.log('newhandler', newHandler);
+          const newHandler = function (e) {
+            e.target.sanitizedValue = this.Sanitizer.sanitizeToString(
+              e.target.value
+            );
+            child.props.onChange(e);
+          }.bind(this);
           const newProps = Object.assign(
             { ...child.props },
             {
@@ -22,7 +28,6 @@ export default class Sanitize extends React.PureComponent {
             }
           );
           const newChild = React.createElement(child.type, newProps);
-
           return newChild;
         });
   }
