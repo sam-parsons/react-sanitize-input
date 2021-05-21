@@ -39,7 +39,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <Sanitize>
-          <input type="text" onChange={this.onChange} />
+          <input id="1" type="text" onChange={this.onChange} />
+          [...multipleInputElements]
         </Sanitize>
         <p>{this.state.inputText}</p>
       </div>
